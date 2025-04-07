@@ -11,6 +11,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
 <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "xPGCz6WDJYIL7eHtC",
+      });
+   })();
+</script>
 </head>
 <body>
     <div class="nav">
@@ -133,20 +144,17 @@
     </div>
     <!-- Contact Form -->
     <div class="contform" id="contact">
-        <div class="contfm">
-            <form action="pk.html" method="get" class="fm">
-                <input type="hidden" name="access_key" value="7c3506f9-a7b3-4aeb-928c-e093061b1b64">
-
-                <h1>Contact Me</h1>
-                <p>Get In Touch</p>
-                <input type="text" name="name" placeholder="Name" class="namefm" required>
-                <input type="email" name="email" placeholder="Email" class="mailfm" required>
-                <input type="text" name="subject" placeholder="Subject" class="subfm">
-                <textarea name="message" placeholder="Message" cols="30" rows="10" class="msgfm"></textarea>
-                <button class="msg">Send Message</button>
-            </form>
-        </div>
-    </div>
+        <form id="contact-form" class="fm">
+          <h1>Contact Me</h1>
+          <p>Get In Touch</p>
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" placeholder="Message" rows="5" required></textarea>
+          <button class="msg" type="submit">Send Message</button>
+          <div class="status" id="form-status"></div>
+        </form>
+      </div>
 
      <!-- Footer -->
      <div class="foot">
