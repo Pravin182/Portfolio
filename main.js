@@ -19,20 +19,20 @@ function updateText(){
     setTimeout(updateText, 300);
 }
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevent actual form submission
-    
-    // Get input values
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+(function() {
+    emailjs.init("xPGCz6WDJYIL7eHtC"); 
+  })();
 
-    // Simple validation
-    if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
-        alert("All fields are required!");
-        return;
-    }
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const status = document.getElementById("form-status");
 
-    // Redirect to success page (pk.html)
-    window.location.href = "pk.html";
-});
+    emailjs.sendForm("service_45jy543", "template_tj7pmb9", this) 
+      .then(() => {
+        status.innerHTML = "✅ Message sent successfully!";
+        this.reset();
+      }, (err) => {
+        status.innerHTML = "❌ Failed to send message. Please try again.";
+        console.error(err);
+      });
+  });
